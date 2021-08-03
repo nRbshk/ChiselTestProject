@@ -53,9 +53,9 @@ class Axi4_3_data_address_synchronous(QUEUE_WIDTH: Int = 8) extends RawModule {
   nempty <> queue.io.nempty
 
 
-  io.wvalid_o := nempty && io.wvalid;
-  io.wready_o := nempty && io.wready;
-  io.wlast_o := nempty && io.wlast;
+  io.wvalid_o := nempty && io.wvalid && ~output_address_accept;
+  io.wready_o := nempty && io.wready && ~output_address_accept;
+  io.wlast_o := nempty && io.wlast && ~output_address_accept;
 
   io.awready_o := ~full && io.awready;
   io.awvalid_o := ~full && io.awvalid;
@@ -63,5 +63,5 @@ class Axi4_3_data_address_synchronous(QUEUE_WIDTH: Int = 8) extends RawModule {
 }
 
 object Test extends App {
-  (new ChiselStage).emitVerilog(new Axi4_3_data_address_synchronous, Array("-td", "srcv", "--emit-modules", "verilog"))
+  (new ChiselStage).emitVerilog(new Axi4_3_data_address_synchronous, Array("-td", "srcv/Axi4_3_data_address_synchronous", "--emit-modules", "verilog"))
 }
