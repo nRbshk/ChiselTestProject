@@ -1,4 +1,3 @@
-// import Mill dependency
 import mill._
 import mill.define.Sources
 import mill.modules.Util
