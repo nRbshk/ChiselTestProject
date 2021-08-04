@@ -18,7 +18,7 @@ class Queue_Model(QUEUE_WIDTH: Int = 8) extends RawModule {
 
     })
 
-    val width = log2Ceil(QUEUE_WIDTH + 1) - 1
+    val width = log2Ceil(QUEUE_WIDTH)
 
     val ptr_r_next = Wire(UInt(width.W))
     val ptr_w_next = Wire(UInt(width.W))

@@ -62,6 +62,6 @@ class Axi4_3_data_address_synchronous(QUEUE_WIDTH: Int = 8) extends RawModule {
 
 }
 
-object Test extends App {
-  (new ChiselStage).emitVerilog(new Axi4_3_data_address_synchronous, Array("-td", "srcv/Axi4_3_data_address_synchronous", "--emit-modules", "verilog"))
-}
+// object Test extends App {
+//   (new ChiselStage).emitVerilog(new Axi4_3_data_address_synchronous, Array("-td", "srcv/Axi4_3_data_address_synchronous", "--emit-modules", "verilog"))
+// }
