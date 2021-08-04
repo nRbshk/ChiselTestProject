@@ -1,13 +1,14 @@
 ThisBuild / scalaVersion     := "2.12.13"
 ThisBuild / version          := "0.1.0"
-ThisBuild / organization     := ""
+ThisBuild / organization     := "com.github.nrbshk"
 
 lazy val root = (project in file("."))
   .settings(
     name := "ChiselTestProject",
     libraryDependencies ++= Seq(
       "edu.berkeley.cs" %% "chisel3" % "3.4.3",
-      "edu.berkeley.cs" %% "chiseltest" % "0.3.3" % "test"
+      "edu.berkeley.cs" %% "treadle" % "1.3.3",
+      "edu.berkeley.cs" %% "chiseltest" % "0.2.0" % "test"
     ),
     scalacOptions ++= Seq(
       "-Xsource:2.11",
