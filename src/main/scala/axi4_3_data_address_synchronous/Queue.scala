@@ -42,7 +42,7 @@ class Queue_Model(QUEUE_WIDTH: Int = 8) extends RawModule {
 
         // "Рабочая" версия
         // Здесь генерится queue_T1, queue_T2, queue_T3 ... и тд (несовсем читабельно)
-        // val queue = RegInit(Vec(QUEUE_WIDTH, UInt(1.W)))
+        // val queue = Reg(Vec(QUEUE_WIDTH, UInt(1.W)))
         // val ptr_r = RegEnable(next=ptr_r_next, init=0.U(width.W), enable=(io.ren && io.nempty))
         // val ptr_w = RegEnable(next=ptr_w_next, init=0.U(width.W), enable=(io.wen && ~io.full))
 
