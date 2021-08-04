@@ -38,8 +38,6 @@ class Fifo_sp(DEPTH: Int = 32, WIDTH: Int = 32) extends RawModule {
         io.out.nempty := Mux(ptr_r === ptr_w, 0.B, 1.B)
         io.out.nfull := Mux((ptr_w =/= ptr_r) && (ptr_r_lower === ptr_w_lower), 0.B, 1.B)
     }
-// assign nempty = (top_wr[DEPTH_LOG  :0]==bot_wr[DEPTH_LOG :0]                                         ) ? 1'b0 : 1'b1;
-// assign nfull  = (top_wr[DEPTH_LOG-1:0]==bot_wr[DEPTH_LOG-1:0] && top_wr[DEPTH_LOG]!=bot_wr[DEPTH_LOG]) ? 1'b0 : 1'b1;
 
     
 }
