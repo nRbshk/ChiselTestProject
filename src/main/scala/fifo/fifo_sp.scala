@@ -4,7 +4,7 @@ import chisel3._
 import chisel3.util._
 
 
-class Fifo_sp(DEPTH: Int = 32, WIDTH: Int = 32) extends RawModule {
+class Fifo_sp(DEPTH: Int = 32, WIDTH: Int = 32) extends Module {
     val io = IO(new Bundle {
         val clk = Input(Clock())
         val rstn = Input(AsyncReset())
