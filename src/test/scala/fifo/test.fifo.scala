@@ -24,10 +24,9 @@ class Fifo_UnitTester extends FreeSpec with ChiselScalatestTester with Matchers 
             dut.clock.step(10)
             fork {
                 for {i <- 1 to 2*fifo_depth } {
-                    println("nfull: " + dut.io.out.nfull.peek())
                     while (!dut.io.out.nfull.peek().litToBoolean) {
                         dut.clock.step(1)
-                        println("full full")
+                        println("full: can't write")
                     }
                     dut.io.in.wen.poke(1.B)
                     dut.io.in.din.poke(i.U)
@@ -40,10 +39,9 @@ class Fifo_UnitTester extends FreeSpec with ChiselScalatestTester with Matchers 
             fork {
                 dut.clock.step(150)
                 for {j <- 1 to 2*fifo_depth } {
-                    println("nempty: " + dut.io.out.nempty.peek())
                     while (!dut.io.out.nempty.peek().litToBoolean) {
                         dut.clock.step(1)
-                        println("not empty")
+                        println("empty: can't read")
                     }
                     dut.io.in.ren.poke(1.B)
                     dut.clock.step(1)
