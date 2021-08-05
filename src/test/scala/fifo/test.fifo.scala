@@ -9,7 +9,7 @@ import org.scalatest.FreeSpec
 import treadle._
 import chisel3.tester.experimental.TestOptionBuilder._
 
-class Fifo_sp_UnitTester extends FreeSpec with ChiselScalatestTester { 
+class Fifo_UnitTester extends FreeSpec with ChiselScalatestTester { 
     private val fifo_depth = 32
     val annotations = Seq(
         // VerilatorBackendAnnotation,
@@ -17,7 +17,7 @@ class Fifo_sp_UnitTester extends FreeSpec with ChiselScalatestTester {
         VerboseAnnotation,
         SymbolsToWatchAnnotation(Seq("io_out"))
     )
-    test(new Fifo_sp(fifo_depth, 32)).withAnnotations(annotations) { dut => 
+    test(new Fifo(fifo_depth, 32)).withAnnotations(annotations) { dut => 
         for {i <- 1 to fifo_depth } {
             dut.io.in.wen.poke(1.B)
             dut.io.in.din.poke(i.U)
